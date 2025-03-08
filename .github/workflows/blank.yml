@@ -1,0 +1,64 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+                      - nombre: Subir un artefacto de compilación
+  usos: acciones/upload-artifact@v4.6.1
+  con:
+    # Nombre del artefacto
+    nombre: # opcional, el valor predeterminado es artefacto
+    # Un archivo, directorio o patrón comodín que describe qué cargar
+    camino:
+    # El comportamiento deseado si no se encuentran archivos utilizando la ruta proporcionada.
+Opciones disponibles:
+  advertir: emite una advertencia pero no hace que la acción falle
+  Error: La acción falla con un mensaje de error
+  ignorar: no muestra ninguna advertencia ni error, la acción no falla
+
+    if-no-files-found: # opcional, el valor predeterminado es advertir
+    # Duración después de la cual el artefacto caducará en días. 0 significa usar la retención predeterminada.
+Mínimo 1 día. Máximo 90 días, a menos que se modifique desde la página de configuración del repositorio.
+
+    días de retención: # opcional
+    # El nivel de compresión que se aplicará a Zlib en el archivo de artefactos. El valor puede variar de 0 a 9: - 0: Sin compresión - 1: Mejor velocidad - 6: Compresión predeterminada (igual que GNU Gzip) - 9: Mejor compresión Los niveles más altos darán como resultado una mejor compresión, pero tardarán más en completarse. Para archivos grandes que no se comprimen fácilmente, se recomienda un valor de 0 para cargas significativamente más rápidas.
+
+    nivel de compresión: # opcional, el valor predeterminado es 6
+    # Si es verdadero, se eliminará un artefacto con un nombre coincidente antes de que se cargue uno nuevo. Si es falso, la acción fallará si ya existe un artefacto con el nombre indicado. No falla si el artefacto no existe.
+
+    sobrescribir: # opcional, el valor predeterminado es falso
+    # Si es verdadero, los archivos ocultos se incluirán en el artefacto. Si es falso, los archivos ocultos se excluirán del artefacto.
+
+    include-hidden-files: # opcional, el valor predeterminado es falso
+          
